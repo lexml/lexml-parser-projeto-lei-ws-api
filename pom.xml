@@ -11,7 +11,7 @@
 	<groupId>br.gov.lexml.parser.pl</groupId>
 	<artifactId>lexml-parser-projeto-lei-ws-api</artifactId>
 	<packaging>jar</packaging>
-	<version>1.5.1-SNAPSHOT</version>
+	<version>1.4.15-SNAPSHOT</version>
 	
 	<name>API do Web Service do Parser de Projetos de Lei do LexML</name>
 	<url>http://www.lexml.gov.br</url>
