@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParserResultado xmlns="http://www.lexml.gov.br/parser-ws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.lexml.gov.br/parser-ws ../../main/xsd/ws/parser-ws.xsd ">
+  <metadado>
+    <localidade>br</localidade>
+    <autoridade>federal</autoridade>
+    <tipoNorma>lei.federal</tipoNorma>
+    <descritorEvento>>2011;178@data.evento;iniciativa;2011-10-26t10.03</descritorEvento>
+  </metadado>
+  <resultado>
+    <falhas/>
+    <caracteristicas/>
+    <saidas>
+    <elementoSaida tipoSaida="DOCUMENTO_ORIGINAL" tipoMime="application/msword">
+    <conteudoXML>
+    <teste>
+    <a>asdasd</a>
+    </teste>
+    </conteudoXML>
+    </elementoSaida>
+    </saidas>
+    <digestFonte>digestFonte</digestFonte>
+    <dataHoraProcessamento>2001-12-31T12:00:00</dataHoraProcessamento>
+  </resultado>
+  <configuracao>
+    <componente nome="test" versao="12312"/>
+  </configuracao>
+</ParserResultado>

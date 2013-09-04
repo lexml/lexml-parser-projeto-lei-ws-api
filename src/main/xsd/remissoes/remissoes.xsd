@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://www.lexml.gov.br/schema/remissoes"
+	xmlns:tns="http://www.lexml.gov.br/schema/remissoes"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	elementFormDefault="qualified">
+    
+    <import namespace="http://www.w3.org/1999/xlink" schemaLocation="xlink.xsd"></import>
+    
+    <complexType name="TRemissoes">
+    	<sequence>
+    		<element name="documento" type="tns:TRemissaoDocumento" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TRemissaoDocumento">
+
+    	<sequence>
+    		<element name="fragmento" type="tns:TRemissaoFragmento" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    	<attribute ref="tns:urn" use="required"></attribute>
+    	<attribute ref="tns:display" use="required"></attribute>
+    	<attribute ref="xlink:href" use="required"></attribute>
+    	<attribute ref="xlink:type" use="required"></attribute>
+    </complexType>
+
+    <complexType name="TRemissaoFragmento">
+        <attribute ref="tns:urn" use="required"></attribute>
+        <attribute ref="tns:display" use="required"></attribute>
+        <attribute ref="xlink:href" use="required"></attribute>
+        <attribute ref="xlink:type" use="required"></attribute>
+    </complexType>
+
+    <attribute name="urn" type="anyURI"></attribute>
+    <attribute name="display" type="string"></attribute>
+
+
+    <element name="Remissoes" type="tns:TRemissoes"></element>
+
+    <attribute name="urlLexml" type="anyURI"></attribute>
+</schema>

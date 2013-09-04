@@ -1,0 +1,36 @@
+### Translation from RTF performed by UnRTF, version 0.20.1
+### document uses ANSI character set
+### font table contains 41 fonts total
+
+TITLE: PROJETO-BRUNO-CPC
+
+AUTHOR: Prodasen
+### creation date: 28 February 2011 15:11 
+### revision date: 19 April 2011 20:53 
+### total pages: 3
+### total words: 723
+### total chars: 3909
+
+-----------------
+PROJETO DE LEI DO SENADO Nº , DE 2011
+Acrescenta o § 3o ao art. 14 da Lei no 1.060, de 5 de fevereiro de 1950, para equiparar as prerrogativas processuais do advogado dativo às do defensor público.
+O CONGRESSO NACIONAL decreta:
+Art. 1o O art. 14 da Lei no 1.060, de 5 de fevereiro de 1950, fica acrescido do seguinte § 3o: 
+?Art. 14................................................................................
+...............................................................................................
+§ 3o O profissional liberal designado para o desempenho do encargo de advogado dativo gozará das mesmas prerrogativas processuais outorgadas aos defensores públicos, previstas no § 5º do art. 5º desta Lei, nos Estados onde não existam Defensorias Públicas organizadas.? (NR)
+Art. 2o Esta Lei entra em vigor trinta dias após a sua publicação.
+JUSTIFICAÇÃO
+O objetivo desta proposição é o acréscimo de § 3o ao art. 14 da Lei no 1.060, de 5 de fevereiro de 1950, denominada Lei de Assistência Judiciária, para estender aos profissionais liberais designados para o desempenho do encargo de defensor dos necessitados as prerrogativas concedidas aos integrantes da Defensoria Pública, no que se refere à intimação pessoal e à contagem em dobro dos prazos processuais.
+Foi preciso, contudo, abandonar o vocábulo ?defensor?, previsto caput do art. 14 da Lei de Assistência Judiciária, para que fosse permitido incluir a expressão ?advogado dativo?, de modo a permitir a distinção entre o primeiro (profissional liberal que presta assistência jurídica ao necessitado), e o Defensor Público (agente do Estado encarregado de defender em juízo os interesses das pessoas necessitadas). Além disso, o projeto também acentua que o advogado dativo atuará em localidades onde não haja Defensoria Pública organizada.
+É preciso, ainda, adequar a redação da Lei da Assistência Judiciária ao texto da Constituição Federal (art. 5o, inciso LXXIV, e art. 134) e à Lei no 8.906, de 4 de julho de 1994 (Estatuto da Advocacia e da Ordem dos Advogados do Brasil ­ OAB), e, também, à Lei Orgânica da Defensoria Pública (Lei Complementar no 80, de 12 de janeiro de 1994), de modo a permitir a harmonia dos textos normativos, no que se refere à defesa dos necessitados em juízo. 
+Observa-se, por oportuno, que o art. 5o, § 5o, da Lei de Assistência Judiciária, limita as prerrogativas nele contidas aos defensores públicos pertencentes a órgão estruturado para esse fim. Vejamos a redação do dispositivo: 
+Art. 5o. ..................................................................................
+...............................................................................................
+§ 5o Nos Estados onde a Assistência Judiciária seja organizada e por eles mantida, o Defensor Público, ou quem exerça cargo equivalente, será intimado pessoalmente de todos os atos do processo em ambas as Instâncias, contando-se-lhes em dobro todos os prazos. 
+A contrario sensu, é possível inferir que, onde a Assistência Judiciária não seja organizada, o profissional liberal que venha a defender algum necessitado em juízo não está autorizado a gozar das prerrogativas da correlação, inclusive a da contagem em dobro dos prazos processuais.
+Aqui, a incongruência é evidente, pois, nos Estados em que a Assistência Judiciária está organizada, não se torna necessária a atuação de advogado ad hoc para as defesas dativas e, quase sempre, urgentes. Assim, do texto legal em vigor ressalta incoerência que precisa ser corrigida, mediante o acréscimo do § 3o ao art. 14 da Lei de Assistência Judiciária, de modo a estender os benefícios do § 5o do art. 5o aos advogados não pertencentes aos quadros da Defensoria Pública, que tenham sido, por algum motivo, indicados à defesa em juízo de pessoa necessitada. 
+Por fim, no que respeita ao comando contido no art. 8o da Lei Complementar no 95, de 1998, que dispõe sobre a elaboração, redação, alteração e consolidação das leis, temos a firme convicção de que a oportunidade se afigura própria para fazer prever a incidência da vacatio legis sobre o projeto (art. 2o), medida que, segundo acreditamos, aperfeiçoará o processo civil brasileiro, pois conceder-se-á aos órgãos judiciais e às Defensorias Públicas prazo razoável para que se dela tenha ampla adaptação, quer quanto a nova formulação dos procedimentos internos dos Tribunais, quer quanto a ordenação dos trabalhos no âmbito das Defensorias Públicas, no que se refere ao cumprimento dos prazos de andamento dos processos. 
+Contamos, pois, com o apoio dos nobres pares para a rápida aprovação desta proposição.
+Sala das Sessões,
+Senador JOSÉ PIMENTEL

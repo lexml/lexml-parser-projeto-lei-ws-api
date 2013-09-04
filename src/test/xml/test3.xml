@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Q1:ParserRequisicao xmlns:Q1="http://www.lexml.gov.br/parser-ws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.lexml.gov.br/parser-ws ../../main/xsd/parser-ws.xsd ">
+  <Q1:metadado>
+    <Q1:localidade>br</Q1:localidade>
+    <Q1:autoridade>senado.federal</Q1:autoridade>
+    <Q1:tipoNorma>projeto.lei;pls</Q1:tipoNorma>
+    <Q1:descritorEvento>2011;178@data.evento;iniciativa;2011-10-26t10.03</Q1:descritorEvento>
+  </Q1:metadado>
+  <Q1:texto>
+    <Q1:tipoMime>text/rtf</Q1:tipoMime>
+    <Q1:TextoAnexo nomeCampo=""/>
+  </Q1:texto>
+  <Q1:saidas>
+    <Q1:tipoSaida tipo="DOCUMENTO_ORIGINAL"/>
+    <Q1:tipoSaida tipo="PDF_ORIGINAL"/>
+    <Q1:tipoSaida tipo="XML_DERIVADO" formato="EMBUTIDO"/>
+    <Q1:tipoSaida tipo="ZIP_DERIVADO"/>
+    <Q1:tipoSaida tipo="PDF_DERIVADO"/>
+    <Q1:tipoSaida tipo="RTF_DERIVADO"/>
+    <Q1:tipoSaida tipo="XML_REMISSOES" formato="EMBUTIDO"/>
+  </Q1:saidas>
+</Q1:ParserRequisicao>

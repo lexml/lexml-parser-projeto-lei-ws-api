@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.gov.lexml</groupId>
+		<artifactId>public-maven-parent</artifactId>
+		<version>0.0.2</version>
+	</parent>
+
+	<groupId>br.gov.lexml.parser.pl</groupId>
+	<artifactId>lexml-parser-projeto-lei-ws-api</artifactId>
+	<packaging>jar</packaging>
+	<version>1.4.15-SNAPSHOT</version>
+	
+	<name>API do Web Service do Parser de Projetos de Lei do LexML</name>
+	<url>http://www.lexml.gov.br</url>
+	
+	<properties>
+		<scala.version>2.10</scala.version>
+		<scala.lib.version>${scala.version}.1</scala.lib.version>
+	</properties>
+	
+	<scm>
+		<url>https://github.com/lexml/${project.artifactId}</url>
+		<developerConnection>scm:git:https://github.com/lexml/${project.artifactId}.git</developerConnection>
+		<connection>scm:git:https://github.com/lexml/${project.artifactId}.git</connection>
+		<tag>HEAD</tag>
+	</scm>
+
+
+	<repositories>
+		<repository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
+		<repository>
+			<id>maven2-repository.dev.java.repositorynet</id>
+			<name>Java.net Maven 2 Repository</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+		<repository>
+			<id>maven-repositoriesository.dev.java.net</id>
+			<name>Java.net Maven 1 Repository (legacy)</name>
+			<url>http://download.java.net/maven/1</url>
+			<layout>legacy</layout>
+		</repository>
+
+		<!-- <repository> <id>java.net</id> <name>java.net Maven Repository</name> 
+			<url>https://maven-repository.dev.java.net/nonav/repository</url> <layout>legacy</layout> 
+			</repository> -->
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Mavenen 2 Repository</name>
+			<url>http://download.java.net/maven/2</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>maven-repository.dev.java.repositorynet</id>
+			<name>Java.net Maven 1 Repository (legacy)</name>
+			<url>http://download.java.net/maven/1</url>
+			<layout>legacy</layout>
+		</pluginRepository>
+
+
+	</pluginRepositories>
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+			     <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.1.5</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<sourceDir>src/main/scala</sourceDir>
+					<jvmArgs>
+						<jvmArg>-Xms64m</jvmArg>
+						<jvmArg>-Xmx1024m</jvmArg>
+					</jvmArgs>
+					<scalaVersion>${scala.version}</scalaVersion>
+					<!-- <javaRebelPath>/home/joao/jrebel/jrebel.jar</javaRebelPath> -->
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.scalaxb</groupId>
+				<artifactId>scalaxb-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+
+				</configuration>
+				<executions>
+					<execution>
+						<id>scalaxb-ws</id>
+						<configuration>
+							<packageName>br.gov.lexml.parser.pl.ws.data.scalaxb</packageName>
+							<xsdDirectory>${basedir}/src/main/xsd/ws</xsdDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>scalaxb-remissoes</id>
+						<configuration>
+							<packageName>br.gov.lexml.parser.pl.ws.remissoes.scalaxb</packageName>
+							<xsdDirectory>${basedir}/src/main/xsd/remissoes</xsdDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.8.2</version>
+				<executions>
+					<execution>
+						<id>jaxb2-ws</id>
+						<configuration>
+							<extension>true</extension>
+							<schemaDirectory>src/main/xsd/ws</schemaDirectory>
+							<generatePackage>br.gov.lexml.parser.pl.ws.data.jaxb</generatePackage>
+							<generateDirectory>${project.build.directory}/generated-sources/xjc-ws</generateDirectory>
+						</configuration>
+						<goals>
+							<goal>generate</goal>							
+						</goals>						
+					</execution> 
+					<execution>
+                        <id>jaxb2-remissoes</id>
+                        <configuration>
+                            <extension>true</extension>
+                            <schemaDirectory>src/main/xsd/remissoes</schemaDirectory>
+                            <generatePackage>br.gov.lexml.parser.pl.ws.remissoes.jaxb</generatePackage>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc-remissoes</generateDirectory>
+                        </configuration>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+				</executions>
+
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<doCheck>false</doCheck>
+					<doUpdate>true</doUpdate>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<lexml_parser_componente_nome>${groupId}/${artifactId}</lexml_parser_componente_nome>
+							<lexml_parser_componente_build>${buildNumber}</lexml_parser_componente_build>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.scalaxb</groupId>
+										<artifactId>
+											scalaxb-maven-plugin
+										</artifactId>
+										<versionRange>
+											[0.6.2,)
+										</versionRange>
+										<goals>
+											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.pojomatic</groupId>
+			<artifactId>pojomatic</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>

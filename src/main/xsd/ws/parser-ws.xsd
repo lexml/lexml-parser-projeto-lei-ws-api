@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.lexml.gov.br/parser-ws"
+	xmlns:tns="http://www.lexml.gov.br/parser-ws" elementFormDefault="qualified"
+	xmlns:Q1="http://www.lexml.gov.br/parser-ws" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	jaxb:extensionBindingPrefixes="xjc" jaxb:version="1.0">
+
+	<annotation>
+		<appinfo>
+			<jaxb:globalBindings generateIsSetMethod="true">
+				<xjc:serializable uid="12343" />
+				<xjc:superClass name="br.gov.lexml.parser.pl.ws.data.jaxb.Base" />
+			</jaxb:globalBindings>
+		</appinfo>
+	</annotation>
+
+
+
+	<complexType name="TipoTexto">
+		<sequence>
+			<element name="tipoMime" type="Q1:TipoMimeEntrada" maxOccurs="1"
+				minOccurs="1"></element>
+			<choice maxOccurs="1" minOccurs="1">
+				<element name="TextoEmbutido" type="Q1:TipoTextoEmbutido"></element>
+				<element name="TextoAnexo" type="Q1:TipoTextoAnexo"></element>
+				<element name="TextoExterno" type="Q1:TipoTextoExterno"></element>
+			</choice>
+		</sequence>
+	</complexType>
+
+	<complexType name="TipoTextoAnexo">
+		<attribute name="nomeCampo" type="string" use="required"></attribute>
+	</complexType>
+
+	<complexType name="TipoTextoExterno">
+		<attribute name="href" type="anyURI" use="required"></attribute>
+	</complexType>
+
+	<complexType name="TipoTextoEmbutido">
+		<simpleContent>
+			<extension base="base64Binary"></extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="TipoMimeEntrada">
+		<restriction base="string">
+			<enumeration value="application/msword"></enumeration>
+			<enumeration value="text/rtf"></enumeration>
+			<enumeration value="text/html"></enumeration>
+			<enumeration value="application/xhtml+xml"></enumeration>
+			<enumeration value="text/plain"></enumeration>
+			<enumeration value="application/vnd.oasis.opendocument.text"></enumeration>
+			<enumeration
+				value="application/vnd.openxmlformats-officedocument.wordprocessingml.document"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="TipoMimeSaida">
+		<restriction base="string">
+			<enumeration value="application/msword"></enumeration>
+			<enumeration value="text/rtf"></enumeration>
+			<enumeration value="text/html"></enumeration>
+			<enumeration value="application/xhtml+xml"></enumeration>
+			<enumeration value="application/vnd.oasis.opendocument.text"></enumeration>
+			<enumeration
+				value="application/vnd.openxmlformats-officedocument.wordprocessingml.document"></enumeration>
+			<enumeration value="text/xml"></enumeration>
+			<enumeration value="application/zip"></enumeration>
+			<enumeration value="application/pdf"></enumeration>
+			<enumeration value="text/plain"></enumeration>
+			<enumeration value="application/epub+zip"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="TipoMetadado">
+		<sequence>
+			<element name="localidade" type="string" maxOccurs="1"
+				minOccurs="1" />
+			<element name="autoridade" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="tipoNorma" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="descritorEvento" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TipoTiposDeSaidas">
+		<sequence>
+			<element name="tipoSaida" type="Q1:TipoTipoDeSaida"
+				maxOccurs="unbounded" minOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TipoTipoDeSaida">
+		<attribute name="tipo" type="Q1:TipoSaida" use="required"></attribute>
+		<attribute name="formato" type="Q1:TipoFormatoSaida" use="optional" default="EXTERNO"/>
+	</complexType>
+
+	<simpleType name="TipoFormatoSaida">
+		<restriction base="string">
+			<enumeration value="EXTERNO" />
+			<enumeration value="EMBUTIDO" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="TipoSaida">
+		<restriction base="string">
+			<enumeration value="DOCUMENTO_ORIGINAL"></enumeration>
+			<enumeration value="PDF_ORIGINAL"></enumeration>
+			<enumeration value="XML_DERIVADO"></enumeration>
+			<enumeration value="ZIP_DERIVADO"></enumeration>
+			<enumeration value="PDF_DERIVADO"></enumeration>
+			<enumeration value="RTF_DERIVADO"></enumeration>
+			<enumeration value="XML_REMISSOES"></enumeration>
+			<enumeration value="EPUB_DERIVADO"></enumeration>
+			<enumeration value="PDF_DIFF"></enumeration>
+		</restriction>
+	</simpleType>
+
+
+	<complexType name="TipoResultado">
+		<sequence>
+			<element name="falhas" type="Q1:TipoFalhas" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="caracteristicas"
+				type="Q1:TipoCaracteristicas" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="saidas" type="Q1:TipoSaidasResultado"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="digestFonte" type="Q1:TipoDigest"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="dataHoraProcessamento" type="dateTime"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="numeroDiferencas" type="int" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TipoFalhas">
+		<sequence>
+			<element name="falha" type="Q1:TipoFalha" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+
+	<complexType name="TipoFalha">
+		<sequence>
+			<element name="codigoTipoFalha" type="int" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="nomeTipoFalha" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="posicao" type="string" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+			<element name="descricao" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="mensagemUsuario" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TipoCaracteristicas">
+		<sequence>
+			<element name="caracteristica" type="Q1:TipoCaracteristica"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TipoCaracteristica">
+		<sequence>
+			<element name="descricao" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="presente" type="boolean" maxOccurs="1"
+				minOccurs="1"></element>
+			<element name="suportadoLexEdit" type="boolean" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TipoSaidasResultado">
+		<sequence>
+			<element name="elementoSaida" type="Q1:TipoElementoSaida"
+				maxOccurs="unbounded" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TipoElementoSaida">
+		<sequence>
+			<element name="digest" type="Q1:TipoDigest" maxOccurs="1"
+				minOccurs="0"></element>
+			<choice maxOccurs="1" minOccurs="0">
+				<element name="conteudoBinario" type="base64Binary"
+					maxOccurs="1" minOccurs="0"></element>
+				<element name="conteudoXML" maxOccurs="1" minOccurs="0">
+					<complexType>
+						<sequence>
+							<any processContents="skip" namespace="##any"></any>
+						</sequence>
+					</complexType>
+				</element>
+			</choice>
+		</sequence>
+		<attribute name="tipoSaida" type="Q1:TipoSaida" use="required">
+		</attribute>
+		<attribute name="tipoMime" type="Q1:TipoMimeSaida" use="required">
+		</attribute>
+		<attribute name="href" type="anyURI" use="optional"></attribute>
+	</complexType>
+
+	<element name="ParserRequisicao">
+		<complexType>
+			<sequence>
+				<element name="metadado" type="Q1:TipoMetadado"
+					maxOccurs="1" minOccurs="1">
+				</element>
+				<element name="texto" type="Q1:TipoTexto" maxOccurs="1"
+					minOccurs="1">
+				</element>
+				<element name="saidas" type="Q1:TipoTiposDeSaidas"
+					maxOccurs="1" minOccurs="1">
+				</element>
+				<element name="opcoes" type="tns:OpcoesRequisicao" maxOccurs="1" minOccurs="0"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="ParserResultado">
+		<complexType>
+			<sequence>
+				<element name="metadado" type="Q1:TipoMetadado" maxOccurs="1"
+					minOccurs="1">
+				</element>
+				<element name="resultado" type="Q1:TipoResultado" maxOccurs="1"
+					minOccurs="1">
+				</element>
+				<element name="configuracao" type="Q1:TipoConfiguracao"
+					maxOccurs="1" minOccurs="1"></element>
+			</sequence>
+		</complexType>
+
+	</element>
+
+
+	<complexType name="TipoDigest">
+		<simpleContent>
+			<extension base="string"></extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="TipoConfiguracao">
+		<sequence>
+			<element name="componente" type="Q1:TipoConfiguracaoComponente"
+				maxOccurs="unbounded" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="TipoConfiguracaoComponente">
+		<attribute name="nome" type="string" use="required"></attribute>
+		<attribute name="versao" type="string" use="required"></attribute>
+	</complexType>
+
+
+
+	<complexType name="ParserProfile">
+		<sequence>
+			<element name="regexLocalData" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
+			<element name="regexJustificativa" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
+			<element name="regexAnexos" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
+			<element name="regexLegislacaoCitada" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
+			<element name="regexAssinatura" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
+			<element name="regexEpigrafe" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
+			<element name="regexPosEpigrafe" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
+			<element name="regexPreambulo" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
+			<element name="epigrafeObrigatoria" type="boolean" maxOccurs="1" minOccurs="0"></element>
+			<element name="preEpigrafePermitida" type="boolean" maxOccurs="1" minOccurs="0"></element>
+			<element name="urnFragTipoNorma" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="epigrafeHead" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="epigrafeTail" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="urnFragAutoridade" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="autoridadeEpigrafe"
+				type="tns:ProfileAutoridadeEpigrafe" maxOccurs="1" minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<simpleType name="RegexType">
+		<restriction base="string">
+			<minLength value="1"></minLength>
+		</restriction>
+	</simpleType>
+
+	<complexType name="RegexList">
+		<sequence>
+			<element name="regex" minOccurs="1" maxOccurs="unbounded" type="tns:RegexType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="OpcoesRequisicao">
+		<sequence>
+			<element name="profile" type="tns:ParserProfile" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ProfileAutoridadeEpigrafe">
+		<sequence>
+			<element name="autoridadeEpigrafeValue" type="string" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+</schema>
