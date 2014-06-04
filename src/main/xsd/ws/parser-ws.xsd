@@ -119,6 +119,7 @@
 			<enumeration value="XML_REMISSOES"></enumeration>
 			<enumeration value="EPUB_DERIVADO"></enumeration>
 			<enumeration value="PDF_DIFF"></enumeration>
+			<enumeration value="XHTML_INTERMEDIARIO"></enumeration>
 		</restriction>
 	</simpleType>
 
