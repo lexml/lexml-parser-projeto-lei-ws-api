@@ -5,7 +5,7 @@
 	<groupId>br.gov.lexml.parser.pl</groupId>
 	<artifactId>lexml-parser-projeto-lei-ws-api</artifactId>
 	<packaging>jar</packaging>
-	<version>1.5.1-SNAPSHOT</version>
+	<version>1.5.2-SNAPSHOT</version>
 	
 	<name>API do Web Service do Parser de Projetos de Lei do LexML</name>
 	<url>http://www.lexml.gov.br</url>
@@ -90,7 +90,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.4.1</version>
+				<version>2.5</version>
 				<configuration>
 					<detail>true</detail>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
@@ -98,7 +98,7 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.7</version>
+				<version>2.8.1</version>
 				<configuration>
 					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
 				</configuration>
@@ -118,7 +118,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.8</version>
+				<version>0.9</version>
 				<configuration>
 					<message>Maven artifacts for ${project.artifactId}
 						${project.version}</message>  <!-- git commit message -->
