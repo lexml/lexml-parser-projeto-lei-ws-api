@@ -11,8 +11,8 @@
 	<url>http://www.lexml.gov.br</url>
 	
 	<properties>
-		<scala.version>2.10</scala.version>
-		<scala.lib.version>${scala.version}.1</scala.lib.version>
+		<scala.version>2.11</scala.version>
+		<scala.lib.version>${scala.version}.4</scala.lib.version>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -315,6 +315,16 @@
 			<version>1.0</version>
 			<type>jar</type>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang.modules</groupId>
+			<artifactId>scala-xml_${scala.version}</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.scala-lang.modules</groupId>
+    		<artifactId>scala-parser-combinators_${scala.version}</artifactId>
+    		<version>1.0.2</version>
 		</dependency>
 	</dependencies>
 </project>
