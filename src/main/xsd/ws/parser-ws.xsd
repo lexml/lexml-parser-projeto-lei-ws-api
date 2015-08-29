@@ -315,6 +315,7 @@
 	<complexType name="OpcoesRequisicao">
 		<sequence>
 			<element name="profile" type="tns:ParserProfile" maxOccurs="1" minOccurs="0"></element>
+			<element name="alwaysParse" type="boolean" maxOccurs="1" minOccurs="0" default="true"/>
 		</sequence>
 	</complexType>
 
