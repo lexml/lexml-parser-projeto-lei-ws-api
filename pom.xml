@@ -5,7 +5,7 @@
 	<groupId>br.gov.lexml.parser.pl</groupId>
 	<artifactId>lexml-parser-projeto-lei-ws-api</artifactId>
 	<packaging>jar</packaging>
-	<version>1.5.10-SNAPSHOT</version>
+	<version>1.5.10</version>
 	
 	<name>API do Web Service do Parser de Projetos de Lei do LexML</name>
 	<url>http://www.lexml.gov.br</url>
@@ -24,7 +24,7 @@
 		<url>https://github.com/lexml/${project.artifactId}</url>
 		<developerConnection>scm:git:https://github.com/lexml/${project.artifactId}.git</developerConnection>
 		<connection>scm:git:https://github.com/lexml/${project.artifactId}.git</connection>
-		<tag>HEAD</tag>
+		<tag>lexml-parser-projeto-lei-ws-api-1.5.10</tag>
 	</scm>
 
 	<distributionManagement>
@@ -271,8 +271,7 @@
 						<configuration>
 							<tasks>
 								
-								<replace dir="target/generated-sources/scalaxb"
-										token="package scalaxb" value="package scalaxb_1_1"/> -->
+								<replace dir="target/generated-sources/scalaxb" token="package scalaxb" value="package scalaxb_1_1" /> --&gt;
 								<replaceregexp flags="g" byline="true">
 									<regexp pattern="([^\./])scalaxb\." />
 									<substitution expression="\1scalaxb_1_1." />
@@ -280,8 +279,7 @@
 										<include name="**/*.scala" />
 									</fileset>
 								</replaceregexp>  
-								<move file="target/generated-sources/scalaxb/scalaxb"
-								     tofile="target/generated-sources/scalaxb/scalaxb_1_1"/> 
+								<move file="target/generated-sources/scalaxb/scalaxb" tofile="target/generated-sources/scalaxb/scalaxb_1_1" /> 
 							</tasks>
 						</configuration>
 						<goals>
@@ -326,7 +324,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-										<ignore></ignore>
+										<ignore />
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
