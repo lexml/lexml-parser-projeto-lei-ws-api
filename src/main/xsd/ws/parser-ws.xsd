@@ -281,23 +281,52 @@
 
 	<complexType name="ParserProfile">
 		<sequence>
-			<element name="regexLocalData" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
-			<element name="regexJustificativa" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
-			<element name="regexAnexos" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
-			<element name="regexLegislacaoCitada" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
-			<element name="regexAssinatura" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
-			<element name="regexEpigrafe" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
-			<element name="regexPosEpigrafe" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
-			<element name="regexPreambulo" type="tns:RegexList" maxOccurs="1" minOccurs="0"></element>
-			<element name="epigrafeObrigatoria" type="boolean" maxOccurs="1" minOccurs="0"></element>
-			<element name="preEpigrafePermitida" type="boolean" maxOccurs="1" minOccurs="0"></element>
-			<element name="urnFragTipoNorma" type="string" maxOccurs="1" minOccurs="0"></element>
-			<element name="epigrafeHead" type="string" maxOccurs="1" minOccurs="0"></element>
-			<element name="epigrafeTail" type="string" maxOccurs="1" minOccurs="0"></element>
-			<element name="urnFragAutoridade" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="regexLocalData" type="tns:RegexList"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="regexJustificativa" type="tns:RegexList"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="regexAnexos" type="tns:RegexList"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="regexLegislacaoCitada" type="tns:RegexList"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="regexAssinatura" type="tns:RegexList"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="regexEpigrafe" type="tns:RegexList"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="regexPosEpigrafe" type="tns:RegexList"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="regexPreambulo" type="tns:RegexList"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="epigrafeObrigatoria" type="boolean"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="preEpigrafePermitida" type="boolean"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="urnFragTipoNorma" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="epigrafeHead" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="epigrafeTail" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="urnFragAutoridade" type="string"
+				maxOccurs="1" minOccurs="0">
+			</element>
 			<element name="autoridadeEpigrafe"
 				type="tns:ProfileAutoridadeEpigrafe" maxOccurs="1" minOccurs="0">
 			</element>
+			<element name="ementaAusente" type="boolean" maxOccurs="1" minOccurs="0"></element>
 		</sequence>
 	</complexType>
 
