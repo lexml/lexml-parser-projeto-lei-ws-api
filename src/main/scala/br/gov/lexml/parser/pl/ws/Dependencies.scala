@@ -10,7 +10,7 @@ object Dependencies {
     ZIP_DERIVADO -> Set(XML_DERIVADO),
     PDF_DERIVADO -> Set(XML_DERIVADO),
     DOCX_DERIVADO -> Set(XML_DERIVADO),
-    PDF_DIFF -> Set(RTF_DERIVADO)).withDefaultValue(Set[TipoSaida]())
+    PDF_DIFF -> Set(DOCX_DERIVADO)).withDefaultValue(Set[TipoSaida]())
   def deps(t: TipoTipoDeSaida): Seq[TipoTipoDeSaida] = t +: depMap(t.tipo).to[Seq].map(tt => TipoTipoDeSaida(tt, EXTERNO))
 
   def completeDependencies(req: ParserRequisicao): ParserRequisicao = {
