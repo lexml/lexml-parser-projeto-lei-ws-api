@@ -11,3 +11,6 @@
 /.cache
 /target/
 /.cache-main
+.idea/
+*.iml
+**/.*.swp
