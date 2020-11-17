@@ -10,6 +10,13 @@ final case class Remissoes(documentos : Vector[RemissaoDocumento]) {
     </rs:Remissoes>
 }
 
+object RemissaoConsts {
+  val URN = s"@{${XMLConsts.rsNamespace}urn"
+  val DISPLAY = s"@{${XMLConsts.rsNamespace}display"
+  val HREF = s"${XMLConsts.xlinkNamespace}href"
+  val TYPE = s"${XMLConsts.xlinkNamespace}type"
+}
+
 final case class RemissaoDocumento(
                                urn : URI,
                                display : String,
@@ -19,17 +26,18 @@ final case class RemissaoDocumento(
                              ) {
   def asXML : Elem  =
     <rs:documento xmlns:rs={XMLConsts.rsNamespace} xmlns:xlink={XMLConsts.xlinkNamespace}
-                  urn={urn.toString} display={display} xlink:href={href.toString} xlink:type={linkType.value}>
+                  rs:urn={urn.toString} rs:display={display} xlink:href={href.toString} xlink:type={linkType.value}>
       {NodeSeq.fromSeq(fragmentos.map(_.asXML))}
       </rs:documento>
 }
 
 object RemissaoDocumento {
+  import RemissaoConsts._
   def fromElem(elem : Elem) : RemissaoDocumento = {
-    val urn = URI.create((elem \ "@urn").text)
-    val display = (elem \ "@display").text
-    val href = URI.create((elem \ s"${XMLConsts.xlinkNamespace}href").text)
-    val linkType = XlinkType((elem \ s"${XMLConsts.xlinkNamespace}type").text)
+    val urn = URI.create((elem \ URN).text)
+    val display = (elem \ DISPLAY).text
+    val href = URI.create((elem \ HREF).text)
+    val linkType = XlinkType((elem \ TYPE).text)
     val fragmentos = (elem \ "fragmento").collect {
       case x : Elem => RemissaoFragmento.fromElem(x)
     }.toVector
@@ -69,15 +77,16 @@ final case class RemissaoFragmento(
                              ) {
   def asXML: Elem =
     <rs:fragmento xmlns:rs={XMLConsts.rsNamespace} xmlns:xlink={XMLConsts.xlinkNamespace}
-                  urn={urn.toString} display={display} xlink:href={href.toString} xlink:type={linkType.value}/>
+                  rs:urn={urn.toString} rs:display={display} xlink:href={href.toString} xlink:type={linkType.value}/>
 }
 
 object RemissaoFragmento {
+  import RemissaoConsts._
   def fromElem(elem : Elem) : RemissaoFragmento = {
-    val urn = URI.create((elem \ "@urn").text)
-    val display = (elem \ "@display").text
-    val href = URI.create((elem \ s"${XMLConsts.xlinkNamespace}href").text)
-    val linkType = XlinkType((elem \ s"${XMLConsts.xlinkNamespace}type").text)
+    val urn = URI.create((elem \ URN).text)
+    val display = (elem \ DISPLAY).text
+    val href = URI.create((elem \ HREF).text)
+    val linkType = XlinkType((elem \ TYPE).text)
     RemissaoFragmento(urn = urn, display = display, href = href, linkType = linkType)
   }
 }
