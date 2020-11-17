@@ -143,35 +143,6 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.scalaxb</groupId>
-				<artifactId>scalaxb-maven-plugin</artifactId>
-				<version>1.7.3</version>				
-				<executions>
-					<execution>
-						<id>scalaxb-ws</id>
-						<configuration>
-							<packageName>br.gov.lexml.parser.pl.ws.data.scalaxb</packageName>
-							<xsdDirectory>${basedir}/src/main/xsd/ws</xsdDirectory>
-<!--                             <generateRuntime>false</generateRuntime> -->
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>scalaxb-remissoes</id>
-						<configuration>
-							<packageName>br.gov.lexml.parser.pl.ws.remissoes.scalaxb</packageName>
-							<xsdDirectory>${basedir}/src/main/xsd/remissoes</xsdDirectory>
-                            <!-- <generateRuntime>false</generateRuntime> -->
-						</configuration>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
 				<artifactId>maven-jaxb2-plugin</artifactId>
 				<version>0.12.3</version>
@@ -232,77 +203,7 @@
 					</archive>
 				</configuration>
 			</plugin>
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<configuration>
-							<tasks>
-								
-								<replace dir="target/generated-sources/scalaxb" token="package scalaxb" value="package scalaxb_1_1" />
-								<replaceregexp flags="g" byline="true">
-									<regexp pattern="([^\./])scalaxb\." />
-									<substitution expression="\1scalaxb_1_1." />
-									<fileset dir="target/generated-sources/scalaxb">
-										<include name="**/*.scala" />
-									</fileset>
-								</replaceregexp>  
-								<move file="target/generated-sources/scalaxb/scalaxb" tofile="target/generated-sources/scalaxb/scalaxb_1_1" /> 
-							</tasks>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-				<dependencies>
-		           <dependency>
-		             <groupId>ant</groupId>
-		             <artifactId>ant-nodeps</artifactId>
-		             <version>1.6.5</version>
-		           </dependency>
-		        </dependencies>
-			</plugin> -->
 		</plugins>
-
-
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.apache.maven.plugins
-										</groupId>
-										<artifactId>
-											maven-antrun-plugin
-										</artifactId>
-										<versionRange>
-											[1.3,)
-										</versionRange>
-										<goals>
-											<goal>run</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
 	<dependencies>
 		<dependency>
@@ -324,19 +225,14 @@
 		    <version>1.3.0</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.scala-lang.modules</groupId>
-		    <artifactId>scala-parser-combinators_${scala.version}</artifactId>
-		    <version>1.1.2</version>
-		</dependency>
-		<dependency>
 			<groupId>jakarta.xml.bind</groupId>
 			<artifactId>jakarta.xml.bind-api</artifactId>
 			<version>2.3.3</version>
 		</dependency>
-        <!-- <dependency>
-         <groupId>br.gov.lexml</groupId>
-         <artifactId>scalaxb-runtime</artifactId>
-         <version>1.7.1.2</version>
-        </dependency> -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.15</version>
+		</dependency>
 	</dependencies>
 </project>

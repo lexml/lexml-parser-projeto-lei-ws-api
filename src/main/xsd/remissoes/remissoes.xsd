@@ -36,6 +36,4 @@
 
 
     <xsd:element name="Remissoes" type="TRemissoes"></xsd:element>
-
-    <xsd:attribute name="urlLexml" type="xsd:anyURI"></xsd:attribute>
 </xsd:schema>
