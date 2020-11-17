@@ -33,8 +33,7 @@ object ParserRequisicao {
   def fromXML(elem : Elem) : ParserRequisicao = {
     val metadado = Metadado.fromXML((elem \ "metadado").head.asInstanceOf[Elem])
     val tipoMime = MimeEntrada((elem \ "texto" \ "tipoMime").text)
-    val textoEntrada =
-        elem.child.collect { case e : Elem if e.label != "metadado" => TextoEntrada.fromXML(e) }.head
+    val textoEntrada = (elem \ "texto").collectFirst { case ee : Elem => ee.child.collectFirst { case e : Elem if e.label != "tipoMime" => TextoEntrada.fromXML(e) }.head }.head
     val saidas = (elem \ "saidas" \ "saida").collect { case e : Elem => Saida.fromXML(e)}.toVector
     val opcoes = (elem \ "opcoes").collectFirst { case e : Elem => OpcoesRequisicao.fromXML(e)}
     ParserRequisicao(metadado = metadado, tipoMime = tipoMime, textoEntrada = textoEntrada,
