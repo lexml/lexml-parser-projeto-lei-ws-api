@@ -1,25 +1,27 @@
 package br.gov.lexml.parser.pl.ws
 
-import br.gov.lexml.parser.pl.ws.data.scalaxb._
-import scalaxb_1_1._
 
 object Dependencies {
-  
+  import br.gov.lexml.parser.pl.ws.data._
+
   val depMap = Map[TipoSaida, Set[TipoSaida]](
-    EPUB_DERIVADO -> Set(XML_DERIVADO),
-    ZIP_DERIVADO -> Set(XML_DERIVADO),
-    PDF_DERIVADO -> Set(XML_DERIVADO),
-    DOCX_DERIVADO -> Set(XML_DERIVADO),
-    DOCXDIFF_DERIVADO -> Set(XML_DERIVADO),
-    PDF_DIFF -> Set(DOCXDIFF_DERIVADO)).withDefaultValue(Set[TipoSaida]())
-  def deps(t: TipoTipoDeSaida): Seq[TipoTipoDeSaida] = t +: depMap(t.tipo).to[Seq].map(tt => TipoTipoDeSaida(tt, EXTERNO))
+    TS_EPUB_DERIVADO -> Set(TS_XML_DERIVADO),
+    TS_ZIP_DERIVADO -> Set(TS_XML_DERIVADO),
+    TS_PDF_DERIVADO -> Set(TS_XML_DERIVADO),
+    TS_DOCX_DERIVADO -> Set(TS_XML_DERIVADO),
+    TS_DOCXDIFF_DERIVADO -> Set(TS_XML_DERIVADO),
+    TS_PDF_DIFF -> Set(TS_DOCXDIFF_DERIVADO)).withDefaultValue(Set[TipoSaida]())
+  def deps(t: Saida): Seq[Saida] = t +: depMap(t.tipo).to(Seq).map(tt => Saida(tipo = tt, formato = FS_EXTERNO))
 
   def completeDependencies(req: ParserRequisicao): ParserRequisicao = {
-    val alwaysParse = req.opcoes.flatMap(_.alwaysParse).getOrElse(true)
-    val saidas = req.saidas.tipoSaida
-    val saidas1 = if (alwaysParse && !saidas.contains(XML_DERIVADO)) { saidas :+ TipoTipoDeSaida(XML_DERIVADO, EXTERNO) } else { saidas }
-    val saidas2 = saidas1.flatMap(deps) ++ saidas1
-    val saidas3 = saidas2.map(t => (t.tipo, t.formato)).toMap.map { case (t, f) => TipoTipoDeSaida(t, f) }.toSeq
-    req.copy(saidas = TipoTiposDeSaidas(saidas3: _*))
+    val alwaysParse = req.opcoes.forall(_.alwaysParse)
+    val saidas = req.saidas
+    val saidas1: Vector[Saida] =
+      if (alwaysParse && !saidas.exists(s => s.tipo == TS_XML_DERIVADO)) {
+        saidas :+ Saida(tipo = TS_XML_DERIVADO, formato = FS_EXTERNO) } else { saidas }
+    val saidas2: Vector[Saida] = saidas1.flatMap(deps) ++ saidas1
+    val saidas3: Seq[Saida] = saidas2.map(t => (t.tipo, t.formato)).toMap
+        .map { case (t, f) => Saida(tipo = t, formato = f) }.toSeq
+    req.copy(saidas = saidas3.toVector)
   }
 }
