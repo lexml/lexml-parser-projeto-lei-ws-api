@@ -4,7 +4,7 @@
   <groupId>br.gov.lexml.parser.pl</groupId>
   <artifactId>lexml-parser-projeto-lei-ws-api</artifactId>
   <packaging>jar</packaging>
-  <version>1.7.1-SNAPSHOT</version>
+  <version>1.7.0-SNAPSHOT</version>
   <name>LexML Brazil Parser Web Service API</name>
   <description>API in Java and Scala for the LexML Brazil Parser Web Service</description>
   <url>https://github.com/lexml/lexml-parser-projeto-lei-ws-api</url>
