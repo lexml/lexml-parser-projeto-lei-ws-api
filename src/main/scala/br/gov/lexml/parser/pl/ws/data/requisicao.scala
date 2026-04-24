@@ -238,6 +238,7 @@ final case class ParserProfile(
   regexLegislacaoCitada : Option[Vector[String]],
   regexAssinatura : Option[Vector[String]],
   regexEpigrafe : Option[Vector[String]],
+  regexEpigrafe1 : Option[Vector[String]],
   regexPosEpigrafe : Option[Vector[String]],
   regexPreambulo : Option[Vector[String]],
   epigrafeObrigatoria : Option[Boolean], //true
@@ -256,6 +257,7 @@ final case class ParserProfile(
       {if (regexLegislacaoCitada.isEmpty) { NodeSeq.Empty} else {<pr:regexLegislacaoCitada xmlns:pr={XMLConsts.prNamespace}>{NodeSeq.fromSeq(regexLegislacaoCitada.toSeq.map(y => <pr:regex>{y}</pr:regex>))}</pr:regexLegislacaoCitada>}}
       {if (regexAssinatura.isEmpty) { NodeSeq.Empty} else {<pr:regexAssinatura xmlns:pr={XMLConsts.prNamespace}>{NodeSeq.fromSeq(regexAssinatura.toSeq.map(y => <pr:regex>{y}</pr:regex>))}</pr:regexAssinatura>}}
       {if (regexEpigrafe.isEmpty) { NodeSeq.Empty} else {<pr:regexEpigrafe xmlns:pr={XMLConsts.prNamespace}>{NodeSeq.fromSeq(regexEpigrafe.toSeq.map(y => <pr:regex>{y}</pr:regex>))}</pr:regexEpigrafe>}}
+      {if (regexEpigrafe1.isEmpty) { NodeSeq.Empty} else {<pr:regexEpigrafe1 xmlns:pr={XMLConsts.prNamespace}>{NodeSeq.fromSeq(regexEpigrafe1.toSeq.map(y => <pr:regex>{y}</pr:regex>))}</pr:regexEpigrafe1>}}
       {if (regexPosEpigrafe.isEmpty) { NodeSeq.Empty} else {<pr:regexPosEpigrafe xmlns:pr={XMLConsts.prNamespace}>{NodeSeq.fromSeq(regexPosEpigrafe.toSeq.map(y => <pr:regex>{y}</pr:regex>))}</pr:regexPosEpigrafe>}}
       {if (regexPreambulo.isEmpty) { NodeSeq.Empty} else {<pr:regexPreambulo xmlns:pr={XMLConsts.prNamespace}>{NodeSeq.fromSeq(regexPreambulo.toSeq.map(y => <pr:regex>{y}</pr:regex>))}</pr:regexPreambulo>}}
       {NodeSeq.fromSeq(epigrafeObrigatoria.toSeq.map(x => <pr:epigrafeObrigatoria>{x.toString}</pr:epigrafeObrigatoria>))}
@@ -280,6 +282,7 @@ object ParserProfile {
     val regexLegislacaoCitada = regexList("regexLegislacaoCitada")
     val regexAssinatura = regexList("regexAssinatura")
     val regexEpigrafe = regexList("regexEpigrafe")
+    val regexEpigrafe1 = regexList("regexEpigrafe1")
     val regexPosEpigrafe = regexList("regexPosEpigrafe")
     val regexPreambulo = regexList("regexPreambulo")
     val epigrafeObrigatoria =
@@ -303,6 +306,7 @@ object ParserProfile {
       regexLegislacaoCitada = regexLegislacaoCitada,
       regexAssinatura = regexAssinatura,
       regexEpigrafe = regexEpigrafe,
+      regexEpigrafe1 = regexEpigrafe1,
       regexPosEpigrafe = regexPosEpigrafe,
       regexPreambulo = regexPreambulo,
       epigrafeObrigatoria = epigrafeObrigatoria,
